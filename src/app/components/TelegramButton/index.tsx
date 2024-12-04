@@ -62,7 +62,6 @@ const TelegramLoginButton: React.FC<TelegramLoginButtonProps> = ({
 
     ref.current.appendChild(script);
 
-    // Change the text of the Telegram button after it's loaded
     script.onload = () => {
       const telegramButton = ref.current?.querySelector('button');
       if (telegramButton) {

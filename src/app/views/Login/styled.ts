@@ -57,7 +57,7 @@ export const Container = styled.div`
         width: 100%;
       }
       .telegram-button > div > * {
-        width: 100%;
+        width: 100% !important;
       }
       .telegram-button > .icon {
         color: #3DABE5;

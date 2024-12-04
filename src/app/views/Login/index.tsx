@@ -10,8 +10,6 @@ import { Button } from "@/app/components/Button";
 import { useRouter } from "next/navigation";
 import { api } from "@/app/api";
 
-// import telegram from '../../../../public/icons/telegram.png';
-// import TelegramLoginButton from "react-telegram-login";
 import TelegramLoginButton from "@/app/components/TelegramButton";
 
 
