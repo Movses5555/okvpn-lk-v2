@@ -56,17 +56,13 @@ export const Container = styled.div`
       .telegram-button > * {
         width: 100%;
       }
+      .telegram-button > div {
+        width: 234px;
+        display: flex;
+        justify-content: center;
+      }
       .telegram-button > div > * {
-        width: 100% !important;
-      }
-      .telegram-button > .icon {
-        color: #3DABE5;
-      }
-      .tgme_widget_login_button{
-        width: 100% !important;
-      }
-      .telegram-button > button {
-        width: 100% !important;
+        width: 234px;
       }
     }
   }
