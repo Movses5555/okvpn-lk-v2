@@ -85,22 +85,6 @@ export const Login = () => {
               Получить код
             </Button>
           </form>
-          {/* <div className="telegram-button">
-            <Button
-              $icon={
-                <Image
-                  src={telegram}
-                  width={18}
-                  height={15}
-                  alt="telegram"
-                />
-              }
-              disabled={onLoad}
-              onClick={() => {}}
-            >
-              Войти через телеграм
-            </Button>
-          </div> */}
           <div className="telegram-button">
             <TelegramLoginButton
               botName={name}
@@ -110,18 +94,6 @@ export const Login = () => {
               dataOnauth={handleBot}
             />
           </div>
-          {/* <div className="telegram-button">
-            <TelegramLoginButton dataOnauth={handleTelegramResponse} botName="OdauBot" language="en" />
-          </div>
-          <div className="telegram-button">
-            <TelegramLoginButton 
-              botName="samplebot" 
-              dataOnauth={handleTelegramResponse} 
-              buttonSize="large" 
-              requestAccess="write"
-              authUrl="https://telegram.org/js/telegram-widget.js?22"
-            />
-          </div> */}
         </div>
       </div>
     </Container>

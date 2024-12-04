@@ -74,7 +74,9 @@ const TelegramLoginButton: React.FC<TelegramLoginButtonProps> = ({
   ]);
 
   return (
-    <Wrapper ref={ref} className={className} {...wrapperProps} />
+    <Wrapper ref={ref} className={className} {...wrapperProps} >
+
+    </Wrapper>
   );
 };
 
