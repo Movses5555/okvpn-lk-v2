@@ -62,6 +62,12 @@ export const Container = styled.div`
       .telegram-button > .icon {
         color: #3DABE5;
       }
+      .tgme_widget_login_button{
+        width: 100% !important;
+      }
+      .telegram-button > button {
+        width: 100% !important;
+      }
     }
   }
 `;
