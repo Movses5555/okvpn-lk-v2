@@ -24,7 +24,7 @@ const TelegramLoginButton: React.FC<TelegramLoginButtonProps> = ({
       typeof dataAuthUrl === "undefined"
     ) {
       throw new Error(
-        "One of this props should be defined: dataAuthUrl (redirect URL), dataOnauth (callback fn) should be defined."
+        "One of these props should be defined: dataAuthUrl (redirect URL), dataOnauth (callback fn) should be defined."
       );
     }
 
@@ -61,6 +61,15 @@ const TelegramLoginButton: React.FC<TelegramLoginButtonProps> = ({
     script.async = true;
 
     ref.current.appendChild(script);
+
+    // Change the text of the Telegram button after it's loaded
+    script.onload = () => {
+      const telegramButton = ref.current?.querySelector('button');
+      if (telegramButton) {
+        telegramButton.textContent = "Войти через Телеграм";
+      }
+    };
+
   }, [
     botName,
     buttonSize,
@@ -74,9 +83,7 @@ const TelegramLoginButton: React.FC<TelegramLoginButtonProps> = ({
   ]);
 
   return (
-    <Wrapper ref={ref} className={className} {...wrapperProps} >
-
-    </Wrapper>
+    <Wrapper ref={ref} className={className} {...wrapperProps} />
   );
 };
 
