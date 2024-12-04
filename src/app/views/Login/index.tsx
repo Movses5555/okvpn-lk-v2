@@ -10,8 +10,9 @@ import { Button } from "@/app/components/Button";
 import { useRouter } from "next/navigation";
 import { api } from "@/app/api";
 
-import telegram from '../../../../public/icons/telegram.png';
-import TelegramLoginButton from "react-telegram-login";
+// import telegram from '../../../../public/icons/telegram.png';
+// import TelegramLoginButton from "react-telegram-login";
+import TelegramLoginButton from "@/app/components/TelegramButton";
 
 
 export const Login = () => {
@@ -50,9 +51,12 @@ export const Login = () => {
   };
 
 
-  const handleTelegramResponse = response => {
-    console.log('response', response);
+  const name = "ReactAuth123456789_bot";
+  const handleBot = (user) => {
+    console.log(user);
   };
+
+  
 
   return (
     <Container>
@@ -81,7 +85,7 @@ export const Login = () => {
               Получить код
             </Button>
           </form>
-          <div className="telegram-button">
+          {/* <div className="telegram-button">
             <Button
               $icon={
                 <Image
@@ -96,8 +100,17 @@ export const Login = () => {
             >
               Войти через телеграм
             </Button>
-          </div>
+          </div> */}
           <div className="telegram-button">
+            <TelegramLoginButton
+              botName={name}
+              buttonSize="large"
+              cornerRadius={3}
+              usePic={false}
+              dataOnauth={handleBot}
+            />
+          </div>
+          {/* <div className="telegram-button">
             <TelegramLoginButton dataOnauth={handleTelegramResponse} botName="OdauBot" language="en" />
           </div>
           <div className="telegram-button">
@@ -108,7 +121,7 @@ export const Login = () => {
               requestAccess="write"
               authUrl="https://telegram.org/js/telegram-widget.js?22"
             />
-          </div>
+          </div> */}
         </div>
       </div>
     </Container>

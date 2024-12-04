@@ -10,10 +10,11 @@ import { Button } from "@/app/components/Button";
 
 import { format } from "date-fns";
 import { api } from "@/app/api";
-import { useMediaQuery } from "@uidotdev/usehooks";
+// import { useMediaQuery } from "@uidotdev/usehooks";
 
 export const Confirmation = () => {
-  const isSmallDevice = useMediaQuery("only screen and (max-width : 768px)");
+  // const isSmallDevice = useMediaQuery("only screen and (max-width : 768px)");
+  const isSmallDevice = false;
 
   const router = useRouter();
 
