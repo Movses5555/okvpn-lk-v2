@@ -66,7 +66,7 @@ const TelegramLoginButton: React.FC<TelegramLoginButtonProps> = ({
     script.onload = () => {
       const telegramButton = ref.current?.querySelector('button');
       if (telegramButton) {
-        telegramButton.textContent = "Войти через Телеграм";
+        telegramButton.textContent = "Войти через телеграм";
       }
     };
 
