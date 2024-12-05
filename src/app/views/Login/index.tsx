@@ -6,18 +6,17 @@ import { Container } from "./styled";
 
 import { Input } from "@/app/components/Input";
 import { Button } from "@/app/components/Button";
+import TelegramLoginButton from "@/app/components/TelegramButton";
 
 import { useRouter } from "next/navigation";
 import { api } from "@/app/api";
-
-import TelegramLoginButton from "@/app/components/TelegramButton";
-
 
 export const Login = () => {
   const router = useRouter();
 
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState("");
+  const [telegramError, setTelegramError] = useState("");
   const [onLoad, setOnLoad] = useState(false);
 
   useEffect(() => {
@@ -49,9 +48,10 @@ export const Login = () => {
   };
 
 
-  const name = process.env.NEXT_PUBLIC_TELEGRAM_BOT_NAME || '';
+  const botName = process.env.NEXT_PUBLIC_TELEGRAM_BOT_NAME || '';
 
   const handleBot = async (user) => {
+    setTelegramError(() => "");
     api
       .telegramLogin(user)
       .then(({ data }) => {
@@ -61,11 +61,9 @@ export const Login = () => {
       })
       .catch((e) => {
         const message = e.response.data.msg;
-        setEmailError(message);
+        setTelegramError(() => message);
       });
   };
-
-  
 
   return (
     <Container>
@@ -78,30 +76,35 @@ export const Login = () => {
           height={36}
         />
       </div>
-      <div className="login-form">
-        <p className="title">Войти</p>
-        <div className="box">
-          <form onSubmit={onRequestCodeHandler}>
-            <Input
-              label="Ваш Email"
-              type="email"
-              value={email}
-              required
-              error={emailError}
-              onChange={({ target }) => setEmail(target.value)}
-            />
-            <Button type="submit" $chevron disabled={onLoad}>
-              Получить код
-            </Button>
-          </form>
-          <div className="telegram-button">
-            <TelegramLoginButton
-              botName={name}
-              buttonSize="large"
-              cornerRadius={3}
-              usePic={false}
-              dataOnauth={handleBot}
-            />
+      <div className="login-form-wrapper">
+        <div className="login-form">
+          <p className="title">Войти</p>
+          <div className="box">
+            <div className="form-wrapper">
+              <form onSubmit={onRequestCodeHandler}>
+                <Input
+                  label="Ваш Email"
+                  type="email"
+                  value={email}
+                  required
+                  error={emailError}
+                  onChange={({ target }) => setEmail(target.value)}
+                />
+                <Button type="submit" $chevron disabled={onLoad}>
+                  Получить код
+                </Button>
+              </form>
+              <div className="telegram-button">
+                <TelegramLoginButton
+                  botName={botName}
+                  buttonSize="large"
+                  cornerRadius={3}
+                  usePic={false}
+                  dataOnauth={handleBot}
+                />
+                { telegramError ? <div className="error-message">{telegramError}</div> : null}
+              </div>
+            </div>
           </div>
         </div>
       </div>

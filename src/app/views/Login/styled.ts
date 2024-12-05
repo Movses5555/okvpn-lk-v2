@@ -6,63 +6,81 @@ export const Container = styled.div`
     justify-content: center;
     margin-top: 40px;
   }
+  .login-form-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-  .login-form {
-    margin-top: 230px;
-    .title {
-        text-align: center;
-        margin-bottom: 40px;
-        font-weight: 600;
-        font-family: Inter;
-        font-size: 31px;
-        @media only screen and (max-width: 644px) {
-          font-size: 25px;
-        }
-        color: #28272F;
-    }
-    .box {
-      form {
-        padding: 40px;
-        border-radius: 20px;
-        margin-left: auto;
-        margin-right: auto;
-        display: flex;
-        flex-direction: column;
-        gap: 40px;
-        align-items: center;
-        width: 500px;
-        @media only screen and (max-width: 644px) {
-          max-width: 350px;
-          width: 100%;
-          padding: 20px;
-        }
-        background-color: white;
-        > * {
-          width: 100%;
-        }
-      }
-      .telegram-button {
-        display: flex;
-        justify-content: center;
-        margin: 40px auto 100px;
-        width: 500px;
+    .login-form {
+      padding-block: 112px;
+      width: 100%;
 
-        @media only screen and (max-width: 644px) {
-          max-width: 350px;
+      .title {
+          text-align: center;
+          margin-bottom: 40px;
+          font-weight: 600;
+          font-family: Inter;
+          font-size: 31px;
+          color: #28272F;
+
+          @media only screen and (max-width: 644px) {
+            font-size: 25px;
+          }
+      }
+
+      .box {
+        .form-wrapper {
           width: 100%;
-          margin: 20px auto 100px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          padding-inline: 20px;
+
+          form {
+            padding: 40px;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            align-items: center;
+            max-width: 500px;
+            width: 100%;
+            background-color: white;
+            > * {
+              width: 100%;
+            }
+
+            @media only screen and (max-width: 644px) {
+              max-width: 100%;
+              padding: 20px;
+              gap: 20px;
+            }
+          }
+
+          .telegram-button {
+            background-color: #3DABE5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 40px;
+            max-width: 500px;
+            width: 100%;
+  
+            @media only screen and (max-width: 644px) {
+              max-width: 100%;
+              width: 100%;
+              margin-top: 20px;
+            }
+
+            .error-message {
+              color: #EB6467;
+              font-size: 14px;
+              margin-top: 10px;
+            }
+          }
+
         }
-      }
-      .telegram-button > * {
-        width: 100%;
-      }
-      .telegram-button > div {
-        width: 234px;
-        display: flex;
-        justify-content: center;
-      }
-      .telegram-button > div > * {
-        width: 234px;
       }
     }
   }
