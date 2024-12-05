@@ -75,3 +75,13 @@ export interface ProfileDataI {
   telegramId: string | null;
   username: string | null;
 }
+
+export interface TelegramLoginI {
+  auth_date: number;
+  first_name: string;
+  hash: string;
+  id: number;
+  last_name: string;
+  photo_url: string | null;
+  username: string | null;
+}

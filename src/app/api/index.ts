@@ -1,5 +1,5 @@
 import axios from "@/app/axios";
-import { AccessKeyI, PaymentGenerateRequestI, ProfileDataI, SubscirptionConfigI, SubscriptionI, SubscriptionsI } from "./types";
+import { AccessKeyI, PaymentGenerateRequestI, ProfileDataI, SubscirptionConfigI, SubscriptionI, SubscriptionsI, TelegramLoginI } from "./types";
 
 export const api = {
   auth(email: string) {
@@ -8,6 +8,10 @@ export const api = {
 
   emailLogin(data: { email: string; code: string }) {
     return axios.post<{ accessToken: string }>("/auth/email-login", data);
+  },
+
+  telegramLogin(data: TelegramLoginI) {
+    return axios.post<{ accessToken: string }>("/auth/telegram", data);
   },
 
   subscriptions() {

@@ -50,8 +50,22 @@ export const Login = () => {
 
 
   const name = process.env.NEXT_PUBLIC_TELEGRAM_BOT_NAME || '';
-  const handleBot = (user) => {
-    console.log(user);
+
+  const handleBot = async (user) => {
+    console.log('user', user);
+    api
+      .emailLogin(user)
+      .then(({ data }) => {
+        console.log('data', data);
+        localStorage.setItem("token", data.accessToken);
+        localStorage.removeItem("email-login");
+        router.replace("/");
+      })
+      .catch((e) => {
+        console.log('e.response', e.response);
+        const message = e.response.data.msg;
+        setEmailError(message);
+      });
   };
 
   
