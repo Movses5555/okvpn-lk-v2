@@ -52,18 +52,14 @@ export const Login = () => {
   const name = process.env.NEXT_PUBLIC_TELEGRAM_BOT_NAME || '';
 
   const handleBot = async (user) => {
-    console.log('user', user);
     api
       .telegramLogin(user)
       .then(({ data }) => {
-        console.log('data', data);
         localStorage.setItem("token", data.accessToken);
         localStorage.removeItem("email-login");
         router.replace("/");
       })
       .catch((e) => {
-        console.log('e.response', e.response);
-        console.log('e.response.data.msg', e.response.data.msg);
         const message = e.response.data.msg;
         setEmailError(message);
       });
