@@ -59,7 +59,6 @@ export const Container = styled.div`
           }
 
           .telegram-button {
-            background-color: #3DABE5;
             display: flex;
             flex-direction: column;
             align-items: center;
