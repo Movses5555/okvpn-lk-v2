@@ -14,7 +14,6 @@ const TelegramLoginButton: React.FC<TelegramLoginButtonProps> = ({
   cornerRadius,
   requestAccess = true,
 }) => {
-  const buttonText = "Войти через Телеграм";
   const ref = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -60,15 +59,7 @@ const TelegramLoginButton: React.FC<TelegramLoginButtonProps> = ({
     }
 
     script.async = true;
-
     ref.current.appendChild(script);
-
-    script.onload = () => {
-      const telegramButton = ref.current?.querySelector("button");
-      if (telegramButton) {
-        telegramButton.textContent = buttonText; // Update button text
-      }
-    };
   }, [
     botName,
     buttonSize,
@@ -79,31 +70,7 @@ const TelegramLoginButton: React.FC<TelegramLoginButtonProps> = ({
     usePic,
     ref,
     dataAuthUrl,
-    buttonText, // Add as dependency
   ]);
-
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-
-    const iframe = window.document.getElementById(
-      `telegram-login-${process.env.NEXT_PUBLIC_TELEGRAM_BOT_NAME}`
-    ) as HTMLIFrameElement;
-
-    if (iframe) {
-      iframe.onload = () => {
-        const iframeDocument = iframe.contentDocument || iframe.contentWindow?.document;
-
-        if (iframeDocument) {
-          const button = iframeDocument.querySelector("button");
-          if (button) {
-            button.style.backgroundColor = "red";
-            button.style.color = "white";
-            button.textContent = buttonText; // Update button text
-          }
-        }
-      };
-    }
-  }, [buttonText]); // Add buttonText as dependency
 
   return (
     <Wrapper

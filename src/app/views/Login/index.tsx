@@ -103,7 +103,6 @@ export const Login = () => {
                   cornerRadius={3}
                   usePic={false}
                   dataOnauth={handleBot}
-                  wrapperProps={{ style: { width: "300px" } }}
                 />
                 { telegramError ? <div className="error-message">{telegramError}</div> : null}
               </div>
