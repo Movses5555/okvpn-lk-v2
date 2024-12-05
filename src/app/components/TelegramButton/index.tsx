@@ -17,7 +17,7 @@ const TelegramLoginButton: React.FC<TelegramLoginButtonProps> = ({
   const ref = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    if (ref.current === null) return;
+    if (typeof window === "undefined" || ref.current === null) return;
 
     if (
       typeof dataOnauth === "undefined" &&
@@ -68,7 +68,6 @@ const TelegramLoginButton: React.FC<TelegramLoginButtonProps> = ({
         telegramButton.textContent = "Войти через телеграм";
       }
     };
-
   }, [
     botName,
     buttonSize,
@@ -81,26 +80,29 @@ const TelegramLoginButton: React.FC<TelegramLoginButtonProps> = ({
     dataAuthUrl,
   ]);
 
-  const iframe = document.getElementById(`telegram-login-${process.env.NEXT_PUBLIC_TELEGRAM_BOT_NAME}`) as HTMLIFrameElement;
+  useEffect(() => {
+    if (typeof window === "undefined") return;
 
-    if(iframe) {
-        iframe.onload = () => {
-            const iframeDocument = iframe.contentDocument || iframe.contentWindow?.document;
-        
-            if (iframeDocument) {
-              const button = iframeDocument.querySelector("button");
-              if (button) {
-                button.style.backgroundColor = "red";
-                button.style.color = "white";
-              }
-            }
-          };
+    const iframe = window.document.getElementById(
+      `telegram-login-${process.env.NEXT_PUBLIC_TELEGRAM_BOT_NAME}`
+    ) as HTMLIFrameElement;
+
+    if (iframe) {
+      iframe.onload = () => {
+        const iframeDocument = iframe.contentDocument || iframe.contentWindow?.document;
+
+        if (iframeDocument) {
+          const button = iframeDocument.querySelector("button");
+          if (button) {
+            button.style.backgroundColor = "red";
+            button.style.color = "white";
+          }
+        }
+      };
     }
+  }, []);
 
-
-  return (
-    <Wrapper ref={ref} className={className} {...wrapperProps} />
-  );
+  return <Wrapper ref={ref} className={className} {...wrapperProps} />;
 };
 
 export default TelegramLoginButton;
