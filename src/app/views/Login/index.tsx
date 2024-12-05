@@ -62,7 +62,9 @@ export const Login = () => {
         router.replace("/");
       })
       .catch((e) => {
-        const message = e.response.data.msg;
+        console.log('e.response', e.response);
+        
+        const message = e?.response?.data?.msg || 'Something went wrong.';
         setTelegramError(() => message);
       });
   };
