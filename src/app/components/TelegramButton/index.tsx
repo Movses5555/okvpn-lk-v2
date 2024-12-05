@@ -14,6 +14,7 @@ const TelegramLoginButton: React.FC<TelegramLoginButtonProps> = ({
   cornerRadius,
   requestAccess = true,
 }) => {
+  const buttonText = "Войти через Телеграм";
   const ref = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
@@ -24,7 +25,7 @@ const TelegramLoginButton: React.FC<TelegramLoginButtonProps> = ({
       typeof dataAuthUrl === "undefined"
     ) {
       throw new Error(
-        "One of these props should be defined: dataAuthUrl (redirect URL), dataOnauth (callback fn) should be defined."
+        "One of these props should be defined: dataAuthUrl (redirect URL), dataOnauth (callback fn)."
       );
     }
 
@@ -63,9 +64,9 @@ const TelegramLoginButton: React.FC<TelegramLoginButtonProps> = ({
     ref.current.appendChild(script);
 
     script.onload = () => {
-      const telegramButton = ref.current?.querySelector('button');
+      const telegramButton = ref.current?.querySelector("button");
       if (telegramButton) {
-        telegramButton.textContent = "Войти через телеграм";
+        telegramButton.textContent = buttonText; // Update button text
       }
     };
   }, [
@@ -78,6 +79,7 @@ const TelegramLoginButton: React.FC<TelegramLoginButtonProps> = ({
     usePic,
     ref,
     dataAuthUrl,
+    buttonText, // Add as dependency
   ]);
 
   useEffect(() => {
@@ -96,13 +98,20 @@ const TelegramLoginButton: React.FC<TelegramLoginButtonProps> = ({
           if (button) {
             button.style.backgroundColor = "red";
             button.style.color = "white";
+            button.textContent = buttonText; // Update button text
           }
         }
       };
     }
-  }, []);
+  }, [buttonText]); // Add buttonText as dependency
 
-  return <Wrapper ref={ref} className={className} {...wrapperProps} />;
+  return (
+    <Wrapper
+      ref={ref}
+      className={className}
+      {...wrapperProps}
+    />
+  );
 };
 
 export default TelegramLoginButton;

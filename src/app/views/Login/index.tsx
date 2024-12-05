@@ -62,8 +62,6 @@ export const Login = () => {
         router.replace("/");
       })
       .catch((e) => {
-        console.log('e.response', e.response);
-        
         const message = e?.response?.data?.msg || 'Something went wrong.';
         setTelegramError(() => message);
       });
@@ -105,6 +103,7 @@ export const Login = () => {
                   cornerRadius={3}
                   usePic={false}
                   dataOnauth={handleBot}
+                  wrapperProps={{ style: { width: "300px" } }}
                 />
                 { telegramError ? <div className="error-message">{telegramError}</div> : null}
               </div>
