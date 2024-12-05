@@ -54,7 +54,7 @@ export const Login = () => {
   const handleBot = async (user) => {
     console.log('user', user);
     api
-      .emailLogin(user)
+      .telegramLogin(user)
       .then(({ data }) => {
         console.log('data', data);
         localStorage.setItem("token", data.accessToken);
@@ -63,6 +63,7 @@ export const Login = () => {
       })
       .catch((e) => {
         console.log('e.response', e.response);
+        console.log('e.response.data.msg', e.response.data.msg);
         const message = e.response.data.msg;
         setEmailError(message);
       });
