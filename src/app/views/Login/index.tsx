@@ -49,7 +49,7 @@ export const Login = () => {
   };
 
 
-  const name = "ReactAuth123456789_bot";
+  const name = process.env.NEXT_PUBLIC_TELEGRAM_BOT_NAME || '';
   const handleBot = (user) => {
     console.log(user);
   };
