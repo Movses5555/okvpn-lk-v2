@@ -53,6 +53,22 @@ const widgetContainerRef = useRef<HTMLDivElement | null>(null);
     script.setAttribute("data-onauth", "TelegramLoginWidget.dataOnauth(user)"); // Callback for user data
     script.async = true;
 
+    script.onload = () => {
+        console.log("Telegram login widget script loaded.");
+    
+        // Try to initialize the widget manually if necessary
+        if (window.TelegramLoginWidget) {
+          console.log("Initializing Telegram login widget...");
+        //   window.TelegramLoginWidget.init(); // Initialize the widget (optional, may not be necessary)
+        } else {
+          console.error("TelegramLoginWidget not available.");
+        }
+      };
+    
+      script.onerror = (error) => {
+        console.error("Error loading Telegram widget script:", error);
+      };
+
     // Append the script to the widget container
     widgetContainerRef.current.appendChild(script);
   };
@@ -78,7 +94,9 @@ const widgetContainerRef = useRef<HTMLDivElement | null>(null);
     </button>
     <div
         ref={widgetContainerRef}
-        style={{ marginTop: "20px" }} // Container for the nested Telegram widget
+        style={{ marginTop: "20px",
+            minHeight: "50px", // Ensure the container has enough height
+            display: "inline-block" }} // Container for the nested Telegram widget
     ></div>
     </>
   );
