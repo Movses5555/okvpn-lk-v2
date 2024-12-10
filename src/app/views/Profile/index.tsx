@@ -86,6 +86,7 @@ export const Profile = () => {
                           width: "135px", 
                           height: "50px",
                           borderRadius: "10px",
+                          position: "relative",
                         }}
                         buttonStyles={{
                           position: 'absolute',
