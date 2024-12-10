@@ -1,9 +1,10 @@
 "use client";
 
-import { useMediaQuery } from "@uidotdev/usehooks";
+import { useMediaQuery } from 'react-responsive';
 import { Container } from "./styled";
 import { PropsI } from "./types";
-import { BiSolidCopy } from "react-icons/bi";
+// import { BiSolidCopy } from "react-icons/bi";
+import Image from "next/image";
 
 export const InputClipboard = ({
   label,
@@ -12,7 +13,7 @@ export const InputClipboard = ({
   placeholder = "",
   type = "text",
 }: PropsI) => {
-  const isSmallDevice = useMediaQuery("only screen and (max-width : 456px)");
+  const isSmallDevice = useMediaQuery({ query: '(max-width: 768px)' });
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(value).then(() => {
@@ -34,10 +35,12 @@ export const InputClipboard = ({
           className="clipboard-mobile-action"
           onClick={() => copyToClipboard()}
         >
-          <BiSolidCopy color="#47A98E" size={20} />
+          <Image src="/icons/copy.png" width={20} height={20} alt="copy" />
         </div>
       ) : (
-        <button onClick={() => copyToClipboard()}>скопировать</button>
+        <button onClick={() => copyToClipboard()}>
+          <span>скопировать</span>
+        </button>
       )}
     </Container>
   );

@@ -19,5 +19,15 @@ export const Container = styled.div`
     > * {
       max-width: 420px;
     }
+
+    .button-wrapper {
+      display: flex;
+      flex-direction: column;
+      label {
+        color: #88878B;
+        font-size: 14px;
+        margin-bottom: 10px
+      }
+    }
   }
 `

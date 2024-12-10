@@ -55,8 +55,6 @@ export const Login = () => {
     api
       .telegramLogin(user)
       .then((response) => {
-        console.log('resp', response);
-        
         localStorage.setItem("token", response?.data?.accessToken);
         localStorage.removeItem("email-login");
         router.replace("/");

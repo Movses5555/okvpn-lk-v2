@@ -1,5 +1,5 @@
 import axios from "@/app/axios";
-import { AccessKeyI, PaymentGenerateRequestI, ProfileDataI, SubscirptionConfigI, SubscriptionI, SubscriptionsI, TelegramLoginI } from "./types";
+import { AccessKeyI, PaymentGenerateRequestI, ProfileDataI, SubscirptionConfigI, SubscriptionI, SubscriptionsI, TelegramLoginI, UpdateProfileDataI } from "./types";
 
 export const api = {
   auth(email: string) {
@@ -44,5 +44,9 @@ export const api = {
    
   profileData() {
     return axios.get<ProfileDataI>('/profile');
+  },
+
+  updateProfileTelegramId(id: string, data: TelegramLoginI) {
+    return axios.post<UpdateProfileDataI>(`/profile/${id}`, data);
   }
 };
