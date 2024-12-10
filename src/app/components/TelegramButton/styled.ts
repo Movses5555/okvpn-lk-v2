@@ -21,15 +21,20 @@ export const Wrapper = styled.div`
     .tgme_widget_login_button {
       display: inline-block;
       padding: 10px 20px;
-      border: 2px solid #54C1A9; /* Green border color */
       border-radius: 12px; /* Rounded corners */
       background-color: white; /* White background */
       color: #212121; /* Dark text color */
-      font-size: 16px; /* Adjust font size */
-      font-family: Arial, sans-serif; /* Use a clean font */
       cursor: pointer; /* Pointer cursor for hover */
       text-align: center;
-      transition: all 0.3s ease-in-out; /* Smooth hover transition */
+
+      width: 135px !important;
+      height: 50px !important;
+      padding: 0px 30px 0px 30px !important;
+      gap: 10px;
+      border-radius: 10px 0px 0px 0px !important;
+      border: 1px 0px 0px 0px;
+      opacity: 0px;
+      border: 1px solid #47A98E !important;
     }
     
     .tgme_widget_login_button:hover {
