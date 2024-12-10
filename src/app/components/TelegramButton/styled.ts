@@ -11,20 +11,15 @@ export const Wrapper = styled.div`
   background-color: #f8f9fa; /* Optional background color for better visibility */
 
   iframe {
-    border: none;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    width: 250px; /* Adjust the width */
-    height: 50px; /* Adjust the height */
+    width: 135px !important;
+    height: 50px !important;
     
     .tgme_widget_login_button {
       display: inline-block;
       padding: 10px 20px;
-      border-radius: 12px; /* Rounded corners */
-      background-color: white; /* White background */
-      color: #212121; /* Dark text color */
-      cursor: pointer; /* Pointer cursor for hover */
+      background-color: white;
+      color: #212121;
+      cursor: pointer;
       text-align: center;
 
       width: 135px !important;
