@@ -77,7 +77,7 @@ const widgetContainerRef = useRef<HTMLDivElement | null>(null);
 
   return (
     <>
-    <button
+    {/* <button
       onClick={handleLoginClick}
       style={{
         padding: "10px 20px",
@@ -91,12 +91,17 @@ const widgetContainerRef = useRef<HTMLDivElement | null>(null);
       }}
     >
       Привязать
-    </button>
+    </button> */}
     <div
         ref={widgetContainerRef}
-        style={{ marginTop: "20px",
+        style={{
+            marginTop: "20px",
             minHeight: "50px", // Ensure the container has enough height
-            display: "inline-block" }} // Container for the nested Telegram widget
+            display: "inline-block",
+            width: "200px", // Ensure the container has a width
+            backgroundColor: "red",
+            cursor: "pointer",
+        }}
     ></div>
     </>
   );
