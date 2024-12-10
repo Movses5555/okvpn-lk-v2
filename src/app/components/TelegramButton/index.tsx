@@ -59,6 +59,17 @@ const TelegramLoginButton: React.FC<TelegramLoginButtonProps> = ({
       );
     }
 
+    script.onload = () => {
+      // Wait for the Telegram widget script to load
+      const iframe = ref.current?.querySelector("iframe");
+      if (iframe) {
+        // Adjust the iframe width, height, and background color
+        iframe.style.width = "300px";  // Custom width
+        iframe.style.height = "80px";  // Custom height
+        iframe.style.backgroundColor = "lightblue";  // Custom background color
+      }
+    };
+
     script.async = true;
     ref.current.appendChild(script);
   }, [

@@ -21,6 +21,8 @@ const widgetContainerRef = useRef<HTMLDivElement | null>(null);
     // Attach the onAuth callback to the global window object
     window.TelegramLoginWidget = {
       dataOnauth: (user) => {
+        console.log('UUUUU', user);
+        
         onAuth(user);
       },
     };
@@ -77,7 +79,7 @@ const widgetContainerRef = useRef<HTMLDivElement | null>(null);
 
   return (
     <>
-    {/* <button
+    <button
       onClick={handleLoginClick}
       style={{
         padding: "10px 20px",
@@ -91,7 +93,7 @@ const widgetContainerRef = useRef<HTMLDivElement | null>(null);
       }}
     >
       Привязать
-    </button> */}
+    </button>
     <div
         ref={widgetContainerRef}
         style={{
