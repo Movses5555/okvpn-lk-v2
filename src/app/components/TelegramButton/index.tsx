@@ -60,8 +60,11 @@ const TelegramLoginButton: React.FC<TelegramLoginButtonProps> = ({
     }
 
     script.onload = () => {
+      console.log('ddddddddddd');
+      
       // Wait for the Telegram widget script to load
       const iframe = ref.current?.querySelector("iframe");
+      console.log('iframe', iframe);
       if (iframe) {
         // Adjust the iframe width, height, and background color
         iframe.style.width = "300px";  // Custom width
