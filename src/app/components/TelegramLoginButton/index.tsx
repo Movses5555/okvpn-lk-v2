@@ -14,8 +14,8 @@ const TelegramLoginButton: React.FC<TelegramLoginButtonProps> = ({
   dataOnauth,
   cornerRadius,
   requestAccess = true,
-  wrapperStyles,
-  buttonStyles,
+  // wrapperStyles,
+  // buttonStyles,
   buttonText,
 }) => {
   const ref = useRef<HTMLDivElement | null>(null);
@@ -80,11 +80,11 @@ const TelegramLoginButton: React.FC<TelegramLoginButtonProps> = ({
     <Wrapper
       ref={ref}
       className={className}
-      style={wrapperStyles}
+      // style={wrapperStyles}
       {...wrapperProps}
     >
       <button
-        style={buttonStyles}
+        // style={buttonStyles}
       >
         <Image src="/icons/telegram.png" width={18} height={15} alt="telegram" />
         {buttonText}

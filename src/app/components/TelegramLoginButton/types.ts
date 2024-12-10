@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import React, { CSSProperties } from "react";
+// import React, { CSSProperties } from "react";
 
 export interface TelegramLoginButtonProps {
   wrapperProps?: React.HTMLProps<HTMLDivElement>;
@@ -12,7 +12,7 @@ export interface TelegramLoginButtonProps {
   dataOnauth?: (user: any) => void;
   cornerRadius?: number;
   requestAccess?: boolean;
-  wrapperStyles: CSSProperties
-  buttonStyles: CSSProperties
+  // wrapperStyles: CSSProperties
+  // buttonStyles: CSSProperties
   buttonText: string
 }
