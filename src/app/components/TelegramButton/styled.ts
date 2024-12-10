@@ -13,6 +13,10 @@ export const Wrapper = styled.div`
   iframe {
     width: 135px !important;
     height: 50px !important;
+
+    .tgme_widget_login_button_icon {
+      display: none !important;
+    }
     
     .tgme_widget_login_button {
       display: inline-block;
