@@ -29,6 +29,8 @@ export const Profile = () => {
   const botName = process.env.NEXT_PUBLIC_TELEGRAM_BOT_NAME || '';
 
   const handleBot = async (user) => {
+    console.log('USER', user);
+    
     setTelegramError(() => "");
     if(profileData && user) {
       api
