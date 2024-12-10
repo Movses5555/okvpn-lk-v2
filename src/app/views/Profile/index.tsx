@@ -37,9 +37,13 @@ export const Profile = () => {
     if(profileData && user) {
       api
         .updateProfileTelegramId(user)
-        .then((response) => {
-          console.log('response', response);
+        .then((response: { data: ProfileDataI | null }) => {
+          const { data } = response;
+          console.log('data', data);
           
+          if (data) {
+            setProfileData(data);
+          }
         })
         .catch((e) => {
           console.log('error', e);
