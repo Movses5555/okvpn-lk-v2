@@ -101,6 +101,14 @@ export const Login = () => {
                   cornerRadius={3}
                   usePic={false}
                   dataOnauth={handleBot}
+                  wrapperStyles={{ 
+                    width: "250px", 
+                    height: "50px",
+                    backgroundColor: "#f0f0f0",
+                    padding: "10px",
+                    borderRadius: "8px",
+                    boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+                  }}
                 />
                 { telegramError ? <div className="error-message">{telegramError}</div> : null}
               </div>
