@@ -7,6 +7,8 @@ import { api } from "@/app/api";
 import { ProfileDataI } from "@/app/api/types";
 import { useIsAuthUser } from "@/app/hooks/useIsAuthUser";
 import TelegramLoginButton from "@/app/components/TelegramButton";
+import { loadTelegramWidget } from "../../utils";
+import CustomTelegramButton from "@/app/components/CustomTelegramButton";
 
 export const Profile = () => {
   const isAuth = useIsAuthUser();
@@ -16,6 +18,7 @@ export const Profile = () => {
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
+    loadTelegramWidget();
     setLoading(true)
     api.profileData().then((res) => {
       setProfileData(res.data);
@@ -84,6 +87,10 @@ export const Profile = () => {
                           borderRadius: "8px",
                           boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
                         }}
+                      />
+                      <CustomTelegramButton
+                        botName={botName}
+                        onAuth={handleBot}
                       />
                       { telegramError ? <div className="error-message">{telegramError}</div> : null}
                     </div>
