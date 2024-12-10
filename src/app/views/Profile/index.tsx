@@ -81,13 +81,29 @@ export const Profile = () => {
                         cornerRadius={3}
                         usePic={false}
                         dataOnauth={handleBot}
+                        buttonText='Привязать'
                         wrapperStyles={{ 
-                          width: "250px", 
+                          width: "135px", 
                           height: "50px",
-                          backgroundColor: "#f0f0f0",
-                          padding: "10px",
-                          borderRadius: "8px",
-                          boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+                          borderRadius: "10px",
+                        }}
+                        buttonStyles={{
+                          position: 'absolute',
+                          top: 0,
+                          left: 0,
+                          zIndex: 10,
+                          width: "135px",
+                          height: "50px",
+                          borderRadius: "10px",
+                          border: "1px solid #47A98E",
+                          backgroundColor: "white",
+                          color: "#28272F",
+                          fontSize: "14px",
+                          lineHeight: "16.94px",
+                          cursor: "pointer",
+                          display: "flex",
+                          justifyContent: "center",
+                          alignItems: "center",
                         }}
                       />
                       {/* <CustomTelegramButton

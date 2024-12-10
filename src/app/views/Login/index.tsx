@@ -101,6 +101,7 @@ export const Login = () => {
                   cornerRadius={3}
                   usePic={false}
                   dataOnauth={handleBot}
+                  buttonText='Привязать'
                   wrapperStyles={{ 
                     width: "250px", 
                     height: "50px",
@@ -108,6 +109,9 @@ export const Login = () => {
                     padding: "10px",
                     borderRadius: "8px",
                     boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+                  }}
+                  buttonStyles={{
+
                   }}
                 />
                 { telegramError ? <div className="error-message">{telegramError}</div> : null}

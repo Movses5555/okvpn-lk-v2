@@ -14,6 +14,8 @@ const TelegramLoginButton: React.FC<TelegramLoginButtonProps> = ({
   cornerRadius,
   requestAccess = true,
   wrapperStyles,
+  buttonStyles,
+  buttonText,
 }) => {
   const ref = useRef<HTMLDivElement | null>(null);
 
@@ -59,19 +61,6 @@ const TelegramLoginButton: React.FC<TelegramLoginButtonProps> = ({
       );
     }
 
-    script.onload = () => {
-      console.log('ddddddddddd');
-      
-      // Wait for the Telegram widget script to load
-      const iframe = ref.current?.querySelector("iframe");
-      if (iframe) {
-        // Adjust the iframe width, height, and background color
-        iframe.style.width = "300px";  // Custom width
-        iframe.style.height = "80px";  // Custom height
-        iframe.style.backgroundColor = "lightblue";  // Custom background color
-      }
-    };
-
     script.async = true;
     ref.current.appendChild(script);
   }, [
@@ -94,24 +83,9 @@ const TelegramLoginButton: React.FC<TelegramLoginButtonProps> = ({
       {...wrapperProps}
     >
       <button
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          zIndex: 10,
-          width: "135px",
-          height: "50px",
-          padding: "10px 20px",
-          border: "2px solid #54C1A9",
-          borderRadius: "12px",
-          backgroundColor: "white",
-          color: "#212121",
-          fontSize: "16px",
-          cursor: "pointer",
-          transition: "all 0.3s ease",
-        }}
+        style={buttonStyles}
       >
-        Привязать
+        {buttonText}
       </button>
     </Wrapper>
   );

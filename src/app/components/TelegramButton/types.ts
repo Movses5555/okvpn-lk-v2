@@ -13,4 +13,6 @@ export interface TelegramLoginButtonProps {
   cornerRadius?: number;
   requestAccess?: boolean;
   wrapperStyles: CSSProperties
+  buttonStyles: CSSProperties
+  buttonText: string
 }
