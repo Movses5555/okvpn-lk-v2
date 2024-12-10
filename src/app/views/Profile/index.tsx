@@ -6,11 +6,8 @@ import { useEffect, useState } from "react";
 import { api } from "@/app/api";
 import { ProfileDataI } from "@/app/api/types";
 import { useIsAuthUser } from "@/app/hooks/useIsAuthUser";
-
-// import Loader from "@/app/components/Loader";
-// import { SiTruenas } from "react-icons/si";
-// import { Button } from "@/app/components/Button";
 import TelegramLoginButton from "@/app/components/TelegramButton";
+
 export const Profile = () => {
   const isAuth = useIsAuthUser();
 
@@ -25,34 +22,24 @@ export const Profile = () => {
       setLoading(false)
     });
   }, []);
-  console.log('profileData.telegramId', profileData?.telegramId);
-  
 
   const botName = process.env.NEXT_PUBLIC_TELEGRAM_BOT_NAME || '';
 
   const handleBot = async (user) => {
-    console.log('telegram User', user);
-    
     setTelegramError(() => "");
     if(profileData && user) {
       api
         .updateProfileTelegramId(user)
         .then((response: { data: ProfileDataI | null }) => {
-          const { data } = response;
-          console.log('data', data);
-          
+          const { data } = response;          
           if (data) {
             setProfileData(data);
           }
         })
         .catch((e) => {
-          console.log('error', e);
-          console.log('error.response', e.response);
-          
           const message = e?.response?.data?.msg || 'Something went wrong.';
           setTelegramError(() => message);
         });
-
     }
   };
 
@@ -83,13 +70,6 @@ export const Profile = () => {
                   ) : (
                     <div className="button-wrapper">
                       <label>Телеграм</label>
-                      {/* <Button
-                        $outlined
-                        type="button"
-                        onClick={() => {}}
-                      >
-                        Привязать
-                      </Button> */}
                       <TelegramLoginButton
                         botName={botName}
                         buttonSize="large"

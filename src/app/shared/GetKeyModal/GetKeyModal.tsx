@@ -122,7 +122,6 @@ export const GetKeyModal = (props: PropsI) => {
               <Button
                 $icon={<FaInfoCircle />}
                 onClick={() => {
-                  console.log(accessKey.instruction);
                   window.open(accessKey.instruction)
                 }}
               >
