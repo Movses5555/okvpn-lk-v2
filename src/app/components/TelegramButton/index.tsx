@@ -64,7 +64,6 @@ const TelegramLoginButton: React.FC<TelegramLoginButtonProps> = ({
       
       // Wait for the Telegram widget script to load
       const iframe = ref.current?.querySelector("iframe");
-      console.log('iframe', iframe);
       if (iframe) {
         // Adjust the iframe width, height, and background color
         iframe.style.width = "300px";  // Custom width
@@ -93,7 +92,28 @@ const TelegramLoginButton: React.FC<TelegramLoginButtonProps> = ({
       className={className}
       style={wrapperStyles}
       {...wrapperProps}
-    />
+    >
+      <button
+        style={{
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          zIndex: 10,
+          width: "135px",
+          height: "50px",
+          padding: "10px 20px",
+          border: "2px solid #54C1A9",
+          borderRadius: "12px",
+          backgroundColor: "white",
+          color: "#212121",
+          fontSize: "16px",
+          cursor: "pointer",
+          transition: "all 0.3s ease",
+        }}
+      >
+        Привязать
+      </button>
+    </Wrapper>
   );
 };
 
