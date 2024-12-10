@@ -10,7 +10,8 @@ export const Input = ({
   placeholder = "",
   type = "text",
   error = "",
-  required = false
+  required = false,
+  disabled = false,
 }: PropsI) => {
   return (
     <Container>
@@ -21,6 +22,7 @@ export const Input = ({
         value={value}
         placeholder={placeholder}
         required={required}
+        disabled={disabled}
       />
       {error ? <div className="error-message">{error}</div> : null}
     </Container>

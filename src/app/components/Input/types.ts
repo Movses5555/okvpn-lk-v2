@@ -6,4 +6,5 @@ export interface PropsI {
     label: string;
     required?: boolean;
     error?: string;
+    disabled?: boolean;
 }

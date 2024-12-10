@@ -77,7 +77,8 @@ export const Profile = () => {
                     <Input
                       label="Телеграм"
                       onChange={() => {}}
-                      value={ profileData.username ? profileData.username : ""}
+                      value={ profileData.username ? '@' + profileData.username : ""}
+                      disabled
                     />
                   ) : (
                     <div className="button-wrapper">
