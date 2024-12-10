@@ -36,7 +36,7 @@ export const Profile = () => {
     setTelegramError(() => "");
     if(profileData && user) {
       api
-        .updateProfileTelegramId(user.id)
+        .updateProfileTelegramId(user)
         .then((response) => {
           console.log('response', response);
           
