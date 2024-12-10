@@ -17,5 +17,24 @@ export const Wrapper = styled.div`
     overflow: hidden;
     width: 250px; /* Adjust the width */
     height: 50px; /* Adjust the height */
+    
+    .tgme_widget_login_button {
+      display: inline-block;
+      padding: 10px 20px;
+      border: 2px solid #54C1A9; /* Green border color */
+      border-radius: 12px; /* Rounded corners */
+      background-color: white; /* White background */
+      color: #212121; /* Dark text color */
+      font-size: 16px; /* Adjust font size */
+      font-family: Arial, sans-serif; /* Use a clean font */
+      cursor: pointer; /* Pointer cursor for hover */
+      text-align: center;
+      transition: all 0.3s ease-in-out; /* Smooth hover transition */
+    }
+    
+    .tgme_widget_login_button:hover {
+      background-color: #f5f5f5; /* Slight gray background on hover */
+      color: #212121; /* Maintain text color on hover */
+    }
   }
 `;
