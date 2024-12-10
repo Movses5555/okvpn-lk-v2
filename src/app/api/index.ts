@@ -1,5 +1,5 @@
 import axios from "@/app/axios";
-import { AccessKeyI, PaymentGenerateRequestI, ProfileDataI, SubscirptionConfigI, SubscriptionI, SubscriptionsI, TelegramLoginI, UpdateProfileDataI } from "./types";
+import { AccessKeyI, PaymentGenerateRequestI, ProfileDataI, SubscirptionConfigI, SubscriptionI, SubscriptionsI, TelegramLoginI } from "./types";
 
 export const api = {
   auth(email: string) {

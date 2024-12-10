@@ -76,11 +76,6 @@ export interface ProfileDataI {
   username: string | null;
 }
 
-export interface UpdateProfileDataI {
-  id: string;
-  telegramId: string;
-}
-
 export interface TelegramLoginI {
   auth_date: number;
   first_name: string;
