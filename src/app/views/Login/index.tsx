@@ -6,7 +6,7 @@ import { Container } from "./styled";
 
 import { Input } from "@/app/components/Input";
 import { Button } from "@/app/components/Button";
-import TelegramLoginButton from "@/app/components/TelegramButton";
+import TelegramLoginButton from "@/app/components/TelegramLoginButton";
 
 import { useRouter } from "next/navigation";
 import { api } from "@/app/api";
@@ -103,15 +103,28 @@ export const Login = () => {
                   dataOnauth={handleBot}
                   buttonText='Привязать'
                   wrapperStyles={{ 
-                    width: "250px", 
+                    width: "100%", 
                     height: "50px",
-                    backgroundColor: "#f0f0f0",
-                    padding: "10px",
-                    borderRadius: "8px",
-                    boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+                    borderRadius: "10px",
+                    position: "relative",
                   }}
                   buttonStyles={{
-
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    zIndex: 1,
+                    width: "135px",
+                    height: "50px",
+                    borderRadius: "10px",
+                    border: "1px solid #47A98E",
+                    backgroundColor: "#3DABE5",
+                    color: "#28272F",
+                    fontSize: "14px",
+                    lineHeight: "16.94px",
+                    cursor: "pointer",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
                   }}
                 />
                 { telegramError ? <div className="error-message">{telegramError}</div> : null}

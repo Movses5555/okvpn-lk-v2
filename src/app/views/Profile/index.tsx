@@ -6,9 +6,8 @@ import { useEffect, useState } from "react";
 import { api } from "@/app/api";
 import { ProfileDataI } from "@/app/api/types";
 import { useIsAuthUser } from "@/app/hooks/useIsAuthUser";
-import TelegramLoginButton from "@/app/components/TelegramButton";
+import TelegramLoginButton from "@/app/components/TelegramJoinButton";
 import { loadTelegramWidget } from "../../utils";
-// import CustomTelegramButton from "@/app/components/CustomTelegramButton";
 
 export const Profile = () => {
   const isAuth = useIsAuthUser();
@@ -107,10 +106,6 @@ export const Profile = () => {
                           alignItems: "center",
                         }}
                       />
-                      {/* <CustomTelegramButton
-                        botName={botName}
-                        onAuth={handleBot}
-                      /> */}
                       { telegramError ? <div className="error-message">{telegramError}</div> : null}
                     </div>
                   )
