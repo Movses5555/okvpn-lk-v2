@@ -2,6 +2,7 @@
 import React, { useRef, useEffect } from "react";
 import { TelegramLoginButtonProps } from "./types";
 import { Wrapper } from "./styled";
+import Image from "next/image";
 
 const TelegramLoginButton: React.FC<TelegramLoginButtonProps> = ({
   wrapperProps,
@@ -85,6 +86,7 @@ const TelegramLoginButton: React.FC<TelegramLoginButtonProps> = ({
       <button
         style={buttonStyles}
       >
+        <Image src="/icons/telegram.png" width={18} height={15} alt="telegram" />
         {buttonText}
       </button>
     </Wrapper>
