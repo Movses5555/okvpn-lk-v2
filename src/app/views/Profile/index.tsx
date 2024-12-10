@@ -92,7 +92,7 @@ export const Profile = () => {
                           position: 'absolute',
                           top: 0,
                           left: 0,
-                          zIndex: 10,
+                          zIndex: 1,
                           width: "135px",
                           height: "50px",
                           borderRadius: "10px",
