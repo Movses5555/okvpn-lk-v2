@@ -13,7 +13,7 @@ export const Container = styled.div`
 
 export const SelectContainer = styled.div`
   position: relative;
-  min-width: 300px;
+  min-width: 280px;
 `;
 
 export const SelectHeader = styled.div`

@@ -14,10 +14,10 @@ import { api } from "@/app/api";
 export const Login = () => {
   const router = useRouter();
 
-  const [email, setEmail] = useState("");
-  const [emailError, setEmailError] = useState("");
-  const [telegramError, setTelegramError] = useState("");
-  const [onLoad, setOnLoad] = useState(false);
+  const [email, setEmail] = useState<string>("");
+  const [emailError, setEmailError] = useState<string>("");
+  const [telegramError, setTelegramError] = useState<string>("");
+  const [onLoad, setOnLoad] = useState<boolean>(false);
 
   useEffect(() => {
     const token = localStorage.getItem("token");

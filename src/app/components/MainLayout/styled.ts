@@ -4,21 +4,25 @@ export const Container = styled.div`
   position: relative;
   .mobile-hamburger-header {
     display: none;
-    &.closed {
-      display: none !important;
-    }
-    @media only screen and (max-width: 1280px) {
-      display: flex;
-    }
     align-items: center;
     justify-content: space-between;
-    height: 30px;
+    height: 70px;
     padding: 20px;
     background-color: white;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
+    
+    @media only screen and (max-width: 1280px) {
+      display: flex;
+    }
+
+    &.closed {
+      display: none !important;
+    }
     .hamburger {
       cursor: pointer;
+      width: 24px;
+      height: 24px;
     }
   }
   .fade {

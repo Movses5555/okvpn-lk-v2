@@ -19,14 +19,18 @@ export const Container = styled.div`
     > * {
       max-width: 420px;
     }
-
     .button-wrapper {
       display: flex;
       flex-direction: column;
       label {
         color: #88878B;
         font-size: 14px;
-        margin-bottom: 10px
+        margin-bottom: 10px;
+        height: 17px;
+      }
+      button {
+        margin-top: 10px;
+        width: 135px;
       }
       .error-message {
         color: #EB6467;

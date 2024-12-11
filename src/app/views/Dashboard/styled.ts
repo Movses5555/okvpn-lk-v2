@@ -6,6 +6,9 @@ export const Container = styled.div`
     font-size: 30px;
     font-weight: 600;
     margin-bottom: 40px;
+    @media only screen and (max-width: 1023px) {
+      margin-bottom: 20px;
+    }
   }
 
   ul {
@@ -13,48 +16,63 @@ export const Container = styled.div`
     flex-direction: column;
     gap: 20px;
 
+    @media only screen and (max-width: 1023px) {
+      gap: 10px;
+    }
+
     li {
       width: 100%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      @media only screen and (max-width: 1400px) {
-        flex-direction: column;
-        gap: 20px;
-        align-items: flex-start;
-      }
       border-radius: 20px;
-      gap: 66px;
       background-color: white;
       padding: 40px;
+
+      @media only screen and (max-width: 1023px) {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        padding: 20px;
+      }
       .name {
-        position: relative;
-        &::before {
-          position: absolute;
-          left: -15px;
-          top: 8px;
-          display: block;
-          content: '';
-          width: 8px;
-          height: 8px;
-          background-color: #47A98E;
-          border-radius: 100%;
-        }
+        display: flex;
+        align-items: center;
         font-size: 25px;
         font-weight: 600;
+        line-height: 30.26px;
+        gap: 10px;
+
+        @media only screen and (max-width: 1023px) {
+          font-size: 20px;
+          line-height: 24.2px;
+        }
+
+        img {
+          @media only screen and (max-width: 1023px) {
+            width: 8px;
+            height: 8px;
+          }
+        }
       }
       > div {
         &.data {
-          display: flex;
-          flex-direction: column;
-          @media only screen and (max-width: 1400px) {
+          gap: 5px;
+          @media only screen and (max-width: 1023px) {
+            display: flex;
             flex: 1;
             width: 100%;
             flex-direction: row;
             justify-content: space-between;
           }
-          gap: 5px;
           &.action {
+            width: 141px;
+
+            @media only screen and (max-width: 1023px) {
+              width: 100%;
+            }
+
             button {
               width: 100%;
             }
@@ -63,14 +81,21 @@ export const Container = styled.div`
         .title {
           font-size: 14px;
           color: #88878B;
+          line-height: 16.94px;
         }
         .value {
           font-size: 18px;
-          @media only screen and (max-width: 1400px) {
-            font-size: 16px;
-          }
+          line-height: 21.78px;
+          margin-top: 5px;
           white-space: nowrap;
           font-weight: 600;
+          color: #28272F;
+          max-width: 210px;
+          @media only screen and (max-width: 1023px) {
+            font-size: 16px;
+            line-height: 19px;
+            margin-top: 0;
+          }
         }
       }
     }

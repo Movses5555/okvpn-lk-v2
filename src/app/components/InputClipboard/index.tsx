@@ -3,7 +3,6 @@
 import { useMediaQuery } from 'react-responsive';
 import { Container } from "./styled";
 import { PropsI } from "./types";
-// import { BiSolidCopy } from "react-icons/bi";
 import Image from "next/image";
 
 export const InputClipboard = ({

@@ -21,9 +21,9 @@ export const Container = styled.div`
     .head {
       display: flex;
       justify-content: space-between;
-      margin: 40px 0 80px 0;
+      margin: 0 0 80px 0;
       @media only screen and (max-width: 990px) {
-        margin: 20px 0;
+        margin: 0 0 20px;
         flex-direction: column;
         gap: 20px;
       }
@@ -36,17 +36,20 @@ export const Container = styled.div`
           align-items: center;
         }
         .title {
-          color: #88878b;
           font-size: 14px;
-          margin-bottom: 5px;
+          color: #88878B;
+          line-height: 16.94px;
         }
         .value {
           font-size: 18px;
-          @media only screen and (max-width: 990px) {
-            font-size: 16px;
-          }
+          line-height: 21.78px;
           font-weight: 600;
           position: relative;
+          
+          @media only screen and (max-width: 990px) {
+            font-size: 16px;
+            line-height: 19px;
+          }
           &.dot-green {
             &::before {
               position: absolute;
@@ -78,12 +81,28 @@ export const Container = styled.div`
       display: flex;
       justify-content: space-between;
       gap: 20px;
+      > * {
+        flex: 1;
+        @media only screen and (max-width: 990px) {
+          flex: none;
+        }
+      }
       @media only screen and (max-width: 990px) {
         flex-direction: column;
         gap: 10px;
       }
-      > * {
-        flex: 1;
+      & > button {
+        line-height: 16.94px;
+        gap: 10px;
+        & > .icon {
+          width: 16px;
+          height: 16px;
+          margin-bottom: 3px;
+          & > svg {
+            width: 16px;
+            height: 16px;
+          }
+        }
       }
     }
   }
