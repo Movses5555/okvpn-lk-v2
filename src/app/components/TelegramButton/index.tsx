@@ -2,7 +2,6 @@
 import React, { useRef, useEffect } from "react";
 import { TelegramLoginButtonProps } from "./types";
 import { WrapperLoginButton, WrapperJoinButton, JoinButton } from "./styled";
-// import Image from "next/image";
 
 const TelegramLoginButton: React.FC<TelegramLoginButtonProps> = ({
   wrapperProps,

@@ -6,7 +6,7 @@ import { Container } from "./styled";
 
 import { Input } from "@/app/components/Input";
 import { Button } from "@/app/components/Button";
-import TelegramLoginButton from "@/app/components/TelegramLoginButton";
+import TelegramButton from "@/app/components/TelegramButton";
 
 import { useRouter } from "next/navigation";
 import { api } from "@/app/api";
@@ -95,7 +95,7 @@ export const Login = () => {
                 </Button>
               </form>
               <div className="telegram-button">
-                <TelegramLoginButton
+                <TelegramButton
                   botName={botName}
                   buttonSize="large"
                   cornerRadius={3}

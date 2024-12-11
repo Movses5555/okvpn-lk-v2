@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { api } from "@/app/api";
 import { ProfileDataI } from "@/app/api/types";
 import { useIsAuthUser } from "@/app/hooks/useIsAuthUser";
-import TelegramLoginButton from "@/app/components/TelegramLoginButton";
+import TelegramButton from "@/app/components/TelegramButton";
 import { loadTelegramWidget } from "../../utils";
 
 export const Profile = () => {
@@ -28,8 +28,6 @@ export const Profile = () => {
   const botName = process.env.NEXT_PUBLIC_TELEGRAM_BOT_NAME || '';
 
   const handleBot = async (user) => {
-    console.log('USER', user);
-    
     setTelegramError(() => "");
     if(profileData && user) {
       api
@@ -74,7 +72,7 @@ export const Profile = () => {
                   ) : (
                     <div className="button-wrapper">
                       <label>Телеграм</label>
-                      <TelegramLoginButton
+                      <TelegramButton
                         botName={botName}
                         buttonSize="large"
                         cornerRadius={3}
