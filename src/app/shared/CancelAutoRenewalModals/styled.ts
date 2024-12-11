@@ -5,13 +5,22 @@ export const ModalContainer = styled.div`
     font-size: 30px;
     font-weight: 600;
     margin-top: 40px;
-    margin-bottom: 12px;
+    width: calc(100% - 30px);
     @media only screen and (max-width: 768px) {
       margin-top: 20px;
-      font-size: 20px;
+      font-size: 25px;
     }
   }
-
+  p {
+    font-size: 16px;
+    line-height: 19.36px;
+    margin-top: 10px;
+    @media only screen and (max-width: 768px) {
+      font-size: 20px;
+      line-height: 24.2px;
+    }
+  }
+  
   .boxes {
     display: flex;
     flex-direction: column;
@@ -20,6 +29,9 @@ export const ModalContainer = styled.div`
 
   .action {
     margin-top: 40px;
+    @media only screen and (max-width: 768px) {
+      margin-top: 20px;
+    }
     > button {
       width: 100%;
     }

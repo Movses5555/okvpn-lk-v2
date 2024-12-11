@@ -6,22 +6,22 @@ import { useEffect, useState } from "react";
 import { api } from "@/app/api";
 import { ProfileDataI } from "@/app/api/types";
 import { useIsAuthUser } from "@/app/hooks/useIsAuthUser";
+import Loader from "@/app/components/Loader";
 import TelegramButton from "@/app/components/TelegramButton";
 import { loadTelegramWidget } from "../../utils";
 
 export const Profile = () => {
   const isAuth = useIsAuthUser();
-
   const [profileData, setProfileData] = useState<ProfileDataI | null>(null);
   const [telegramError, setTelegramError] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     loadTelegramWidget();
-    setLoading(true)
+    setLoading(true);
     api.profileData().then((res) => {
       setProfileData(res.data);
-      setLoading(false)
+      setLoading(false);
     });
   }, []);
 
@@ -50,10 +50,9 @@ export const Profile = () => {
       <Container>
         <h1>Профиль</h1>
         <div className="box">
-
           {
             loading || !profileData ? (
-              <p>Загрузка...</p>
+              <Loader />
             ) : (
               <>
                 <Input

@@ -7,9 +7,9 @@ import { api } from "@/app/api";
 export const CancelAutoRenewalModals = (props: PropsI) => {
   const { modals, onOpenModals, subId, onCancelationSubmited } = props;
 
-  const handleRequestToCancel = async () => {
+  const handleRequestToCancel = async () => {    
     await api.disableRenew(subId)
-    onOpenModals([...modals, "cancel-info"])
+    onOpenModals(["cancel-info"])
     onCancelationSubmited();
   }
 

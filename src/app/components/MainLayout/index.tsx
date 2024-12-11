@@ -31,11 +31,11 @@ export const MainLayout = ({ children }: PropsI) => {
           className="icon"
           src={"/icon.svg"}
           alt=""
-          width={116}
-          height={36}
+          width={96}
+          height={30}
         />
         <div className="hamburger" onClick={() => setOpenMobileMenu(true)}>
-          <GiHamburgerMenu size={25} />
+          <GiHamburgerMenu size={24} />
         </div>
       </div>
       <div className={`fade ${openMobileMenu ? "open" : "closed"}`}>

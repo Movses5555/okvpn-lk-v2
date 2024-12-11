@@ -12,15 +12,22 @@ import { CancelAutoRenewalModals } from "@/app/shared/CancelAutoRenewalModals/Ca
 import { api } from "@/app/api";
 import { SubscriptionI } from "@/app/api/types";
 import { differenceInDays, format } from "date-fns";
+import Loader from '@/app/components/Loader';
 
 export const Subscription = (props: PropsI) => {
   const { subId } = props;
-
+  const [loading, setLoading] = useState<boolean>(true);
   const [subscription, setSubscription] = useState<SubscriptionI | null>(null);
+  const [days, setDays] = useState<number>(0);
+  const [startAtFormated, setStartAtFormated] = useState<string>("");
+  const [endAtFormated, setEndAtFormated] = useState<string>("");
 
   const getSubscriptionData = () => {
     api.subscription(subId).then((response) => {
       setSubscription(response.data);
+      if(response.data) {
+        setLoading(false);
+      }
     });
   };
 
@@ -29,40 +36,40 @@ export const Subscription = (props: PropsI) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [subId]);
 
+  useEffect(() => {
+    if(subscription) {
+      const startAt = new Date(subscription.startAt);
+      const endAt = new Date(subscription.endAt);
+      const days = differenceInDays(endAt, new Date());
+      const startAtFormated = format(startAt, "dd.MM.yyyy");
+      const endAtFormated = format(endAt, "dd.MM.yyyy");
+      setDays(days);
+      setStartAtFormated(startAtFormated);
+      setEndAtFormated(endAtFormated);
+    }
+  }, [subscription]);
+
   const [getKeyModals, setGetKeyModals] = useState<string[]>([]);
+  const [renewSubscriptionModals, setRenewSubscriptionModals] = useState<string[]>([]);
+  const [cancelAutoRenewalModals, setCancelAutoRenewalModals] = useState<string[]>([]);  
 
-  const [renewSubscriptionModals, setRenewSubscriptionModals] = useState<
-    string[]
-  >([]);
-
-  const [cancelAutoRenewalModals, setCancelAutoRenewalModals] = useState<
-    string[]
-  >([]);
-
-  if (!subscription) {
+  if (loading || !subscription) {
     return (
       <MainLayout mode="light">
-        <p>Загрузка...</p>
+        <Loader />
       </MainLayout>
     );
   }
 
-  const startAt = new Date(subscription.startAt);
-  const endAt = new Date(subscription.endAt);
-  const days = differenceInDays(endAt, new Date());
-
-  const startAtFormated = format(startAt, "dd.MM.yyyy");
-  const endAtFormated = format(endAt, "dd.MM.yyyy");
-
   return (
     <MainLayout mode="light">
       <Container>
-        <h1>{subscription.plan.name}</h1>
+        <h1>{subscription?.plan?.name}</h1>
         <div className="data-content">
           <div className="head">
             <div className="data">
               <div className="title">Тип:</div>
-              <div className="value">{subscription.plan.type}</div>
+              <div className="value">{subscription?.plan?.type}</div>
             </div>
             <div className="data">
               <div className="title">Период:</div>
@@ -78,10 +85,10 @@ export const Subscription = (props: PropsI) => {
               <div className="title">Автопродление:</div>
               <div
                 className={`value dot-green ${
-                  subscription.autoRenew === "enabled" ? "dot-green" : "dot-red"
+                  subscription?.autoRenew === "enabled" ? "dot-green" : "dot-red"
                 }`}
               >
-                {subscription.autoRenew === "enabled"
+                {subscription?.autoRenew === "enabled"
                   ? "включено"
                   : "отключено"}
               </div>
@@ -92,26 +99,26 @@ export const Subscription = (props: PropsI) => {
               onClick={() => setGetKeyModals(["get-key-access"])}
               $icon={<FaKey />}
             >
-              Получить ключ доступа
+              <span>Получить ключ доступа</span>
             </Button>
             <Button
               onClick={() => setRenewSubscriptionModals(["renew-subscription"])}
               $icon={<FaCalendarAlt color="#47A98E" />}
               $outlined
             >
-              Продлить
+              <span>Продлить</span>
             </Button>
             <Button
               $icon={<IoMdCloseCircle color="#EB6467" size={18} />}
               $outlined
               $danger
               onClick={() => {
-                if (subscription.autoRenew !== "disabled") {
+                if (subscription?.autoRenew !== "disabled") {
                   setCancelAutoRenewalModals(["cancel-confirmation"]);
                 }
               }}
             >
-              Отменить автопродление
+              <span>Отменить автопродление</span>
             </Button>
           </div>
         </div>

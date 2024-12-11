@@ -1,6 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-
-
 export interface TelegramLoginButtonProps {
   wrapperProps?: React.HTMLProps<HTMLDivElement>;
   dataAuthUrl?: string;

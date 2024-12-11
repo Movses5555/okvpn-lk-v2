@@ -36,13 +36,16 @@ export const WindowContainer = styled.div<{ $isOpen: boolean }>`
     position: absolute;
     right: 20px;
     top: 20px;
+    width: 24px;
+    height: 24px;
+    padding: 0;
     cursor: pointer;
     outline: 0;
     border: none;
     background-color: white;
   }
   .modal-content {
-    padding: 0 40px 20px 40px;
+    padding: 0 40px 40px 40px;
     @media only screen and (max-width: 768px) {
       padding: 0 20px 20px 20px;
     }

@@ -56,7 +56,7 @@ export const GetKeyModal = (props: PropsI) => {
         })
         .then((res) => {
           setAccessKey(res.data);
-          onOpenModals([...modals, "your-key-of-access"]);
+          onOpenModals(["your-key-of-access"]);
         });
     }
   };
@@ -125,7 +125,7 @@ export const GetKeyModal = (props: PropsI) => {
                   window.open(accessKey.instruction)
                 }}
               >
-                Смотреть инструкцию
+                <span>Смотреть инструкцию</span>
               </Button>
             </div>
           </ModalContainer>

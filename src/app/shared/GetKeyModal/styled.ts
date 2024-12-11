@@ -4,12 +4,12 @@ export const ModalContainer = styled.div`
   h1 {
     font-size: 30px;
     font-weight: 600;
-    margin-top: 40px;
-    margin-bottom: 40px;
+    margin-block: 40px;
+    line-height: 36.31px;
     @media only screen and (max-width: 768px) {
-      margin-top: 20px;
-      margin-bottom: 40px;
+      margin-block: 20px;
       font-size: 20px;
+      line-height: 24.2px;
     }
   }
 
@@ -21,6 +21,9 @@ export const ModalContainer = styled.div`
 
   .action {
     margin-top: 40px;
+    @media only screen and (max-width: 768px) {
+      margin-top: 20px;
+    }
     > button {
       width: 100%;
     }

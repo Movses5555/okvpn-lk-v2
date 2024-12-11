@@ -48,5 +48,6 @@ export const api = {
 
   updateProfileTelegramId(data: TelegramLoginI) {
     return axios.put<ProfileDataI>(`/profile`, data);
-  }
+  },
+  
 };
