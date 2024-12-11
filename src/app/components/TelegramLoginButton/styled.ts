@@ -1,15 +1,15 @@
 import styled from "styled-components";
 
 export const WrapperLoginButton = styled.div`
-  width: 100%;
-  height: 50px;
+  width: 205px;
+  height: 40px;
   border-radius: 10px;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   iframe {
-    opacity: 0;
-    width: 100% !important;
-    height: 50px !important;
     position: absolute;
     top: 0;
     left: 0;

@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useRef, useEffect } from "react";
 import { TelegramLoginButtonProps } from "./types";
-import { WrapperLoginButton, WrapperJoinButton, LoginButton, JoinButton } from "./styled";
+import { WrapperLoginButton, WrapperJoinButton, JoinButton } from "./styled";
 import Image from "next/image";
 
 const TelegramLoginButton: React.FC<TelegramLoginButtonProps> = ({
@@ -81,10 +81,6 @@ const TelegramLoginButton: React.FC<TelegramLoginButtonProps> = ({
         className={className}
         {...wrapperProps}
       >
-        <LoginButton>
-          <Image src="/icons/telegram.png" width={18} height={15} alt="telegram" />
-          <p>Войти через телеграм</p>
-        </LoginButton>
       </WrapperLoginButton>
     )
   }
