@@ -33,6 +33,10 @@ export const WrapperJoinButton = styled.div`
     left: 0;
     z-index: 2;
     cursor: pointer;
+
+    & > * {
+      width: 100%;
+    }
   }
 `;
 
