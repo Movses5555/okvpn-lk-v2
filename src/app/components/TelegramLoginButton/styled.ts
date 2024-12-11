@@ -20,14 +20,14 @@ export const WrapperLoginButton = styled.div`
 
 export const WrapperJoinButton = styled.div`
   width: 135px;
-  height: 50px;
+  height: 40px;
   border-radius: 10px;
   position: relative;
 
   iframe {
     opacity: 0;
     width: 135px !important;
-    height: 50px !important;
+    height: 40px !important;
     position: absolute;
     top: 0;
     left: 0;
@@ -47,7 +47,7 @@ export const LoginButton = styled.button`
   left: 0;
   z-index: 1;
   width: 100%;
-  height: 50px;
+  height: 40px;
   border-radius: 10px;
   border: 1px solid #47A98E;
   background-color: #3DABE5;
@@ -67,7 +67,7 @@ export const JoinButton = styled.button`
   left: 0;
   z-index: 1;
   width: 135PX;
-  height: 50px;
+  height: 40px;
   border-radius: 10px;
   border: 1px solid #47A98E;
   background-color: white;
