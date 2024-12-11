@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { api } from "@/app/api";
 import { ProfileDataI } from "@/app/api/types";
 import { useIsAuthUser } from "@/app/hooks/useIsAuthUser";
-import TelegramLoginButton from "@/app/components/TelegramJoinButton";
+import TelegramLoginButton from "@/app/components/TelegramLoginButton";
 import { loadTelegramWidget } from "../../utils";
 
 export const Profile = () => {
@@ -80,31 +80,6 @@ export const Profile = () => {
                         cornerRadius={3}
                         usePic={false}
                         dataOnauth={handleBot}
-                        buttonText='Привязать'
-                        wrapperStyles={{ 
-                          width: "135px", 
-                          height: "50px",
-                          borderRadius: "10px",
-                          position: "relative",
-                        }}
-                        buttonStyles={{
-                          position: 'absolute',
-                          top: 0,
-                          left: 0,
-                          zIndex: 1,
-                          width: "135px",
-                          height: "50px",
-                          borderRadius: "10px",
-                          border: "1px solid #47A98E",
-                          backgroundColor: "white",
-                          color: "#28272F",
-                          fontSize: "14px",
-                          lineHeight: "16.94px",
-                          cursor: "pointer",
-                          display: "flex",
-                          justifyContent: "center",
-                          alignItems: "center",
-                        }}
                       />
                       { telegramError ? <div className="error-message">{telegramError}</div> : null}
                     </div>

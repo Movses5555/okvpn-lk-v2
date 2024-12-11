@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useRef, useEffect } from "react";
 import { TelegramLoginButtonProps } from "./types";
-import { Wrapper } from "./styled";
+import { WrapperLoginButton, WrapperJoinButton, LoginButton, JoinButton } from "./styled";
 import Image from "next/image";
 
 const TelegramLoginButton: React.FC<TelegramLoginButtonProps> = ({
@@ -14,9 +14,7 @@ const TelegramLoginButton: React.FC<TelegramLoginButtonProps> = ({
   dataOnauth,
   cornerRadius,
   requestAccess = true,
-  // wrapperStyles,
-  // buttonStyles,
-  buttonText,
+  isLoginButton = false,
 }) => {
   const ref = useRef<HTMLDivElement | null>(null);
 
@@ -76,20 +74,31 @@ const TelegramLoginButton: React.FC<TelegramLoginButtonProps> = ({
     dataAuthUrl,
   ]);
 
+  if(isLoginButton) {
+    return (
+      <WrapperLoginButton
+        ref={ref}
+        className={className}
+        {...wrapperProps}
+      >
+        <LoginButton>
+          <Image src="/icons/telegram.png" width={18} height={15} alt="telegram" />
+          <p>Войти через телеграм</p>
+        </LoginButton>
+      </WrapperLoginButton>
+    )
+  }
+
   return (
-    <Wrapper
+    <WrapperJoinButton
       ref={ref}
       className={className}
-      // style={wrapperStyles}
       {...wrapperProps}
     >
-      <button
-        // style={buttonStyles}
-      >
-        <Image src="/icons/telegram.png" width={18} height={15} alt="telegram" />
-        {buttonText}
-      </button>
-    </Wrapper>
+      <JoinButton>
+        <p>Привязать</p>
+      </JoinButton>
+    </WrapperJoinButton>
   );
 };
 
